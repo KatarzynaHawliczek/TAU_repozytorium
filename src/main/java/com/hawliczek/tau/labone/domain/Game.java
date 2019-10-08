@@ -1,4 +1,4 @@
-package com.hawliczek.domain;
+package com.hawliczek.tau.labone.domain;
 
 public class Game
 {
