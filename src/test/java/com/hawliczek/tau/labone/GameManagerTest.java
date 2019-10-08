@@ -26,4 +26,13 @@ public class GameManagerTest
 		gameManager.addGame(game1);
 		assertEquals(game1, gameManager.getGameById(1));
 	}
+	
+	@Test
+	public void getGameByIdMethodShouldReturnAGameWithGivenId()
+	{
+		GameManagerImpl gameManager = new GameManagerImpl();
+		Game game2 = new Game(2, "The Witcher 3: Wild Hunt ", "RPG", "CD Project RED", "CD Project RED", "18-05-2015");
+		gameManager.addGame(game2);
+		assertEquals(game2, gameManager.getGameById(2));
+	}
 }

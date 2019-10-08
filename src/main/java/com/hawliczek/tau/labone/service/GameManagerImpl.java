@@ -12,7 +12,7 @@ public class GameManagerImpl implements GameManager
 	@Override
 	public void addGame(Game game)
 	{
-		
+		gameList.add(game);
 	}
 
 	@Override
@@ -24,6 +24,13 @@ public class GameManagerImpl implements GameManager
 	@Override
 	public Game getGameById(int id)
 	{
+		for(Game game : gameList)
+		{
+			if(game.getId() == id)
+			{
+				return game;
+			}
+		}
 		return null;
 	}
 
