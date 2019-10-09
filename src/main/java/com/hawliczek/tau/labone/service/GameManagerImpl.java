@@ -18,7 +18,7 @@ public class GameManagerImpl implements GameManager
 	@Override
 	public List<Game> getAllGames()
 	{
-		return null;
+		return gameList;
 	}
 
 	@Override
