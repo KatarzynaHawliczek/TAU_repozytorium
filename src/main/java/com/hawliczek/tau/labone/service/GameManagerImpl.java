@@ -16,13 +16,13 @@ public class GameManagerImpl implements GameManager
 	}
 
 	@Override
-	public List<Game> getAllGames()
+	public List<Game> getAllGames() throws Exception
 	{
 		return gameList;
 	}
 
 	@Override
-	public Game getGameById(int id)
+	public Game getGameById(int id) throws Exception
 	{
 		for(Game game : gameList)
 		{
@@ -35,7 +35,7 @@ public class GameManagerImpl implements GameManager
 	}
 
 	@Override
-	public void updateGame(Game game, int id)
+	public void updateGame(Game game, int id) throws Exception
 	{
 		Game gameToUpdate = getGameById(game.getId());
 		if(gameToUpdate != null)
@@ -49,8 +49,12 @@ public class GameManagerImpl implements GameManager
 	}
 
 	@Override
-	public void deleteGame(Game game)
+	public void deleteGame(int id) throws Exception
 	{
-		
+		Game game = getGameById(id);
+		if(game != null)
+		{
+			gameList.remove(game);
+		}
 	}
 }

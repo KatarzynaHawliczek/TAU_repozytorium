@@ -21,7 +21,7 @@ public class GameManagerTest
 	}
 	
 	@Test
-	public void addGameMethodShouldAddAGame()
+	public void addGameMethodShouldAddAGame() throws Exception
 	{
 		Game game1 = new Game(1, "Rise Of The Tomb Raider", "Akcja", "Crystal Dynamics", "Square Enix", "09-02-2016");
 		gameManager.addGame(game1);
@@ -59,5 +59,15 @@ public class GameManagerTest
 		gameToUpdate.setPublisher("PlayWay S.A.");
 		gameManager.updateGame(gameToUpdate, 5);
 		assertEquals("PlayWay S.A.", gameManager.getGameById(5).getPublisher());
+	}
+	
+	@Test
+	public void deleteGameMethodShouldDeleteAGameWithGivenId() throws Exception
+	{
+		Game game6 = new Game(6, "Subnautica", "Przygodowe", "Unknown Worlds Entertainment", "Unknown Worlds Entertainment", "23-01-2018");
+		gameManager.addGame(game6);
+		
+		gameManager.deleteGame(6);
+		assertNull(gameManager.getGameById(6));
 	}
 }
