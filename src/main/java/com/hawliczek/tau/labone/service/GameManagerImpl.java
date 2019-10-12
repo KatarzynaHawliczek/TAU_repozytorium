@@ -37,7 +37,15 @@ public class GameManagerImpl implements GameManager
 	@Override
 	public void updateGame(Game game, int id)
 	{
-		
+		Game gameToUpdate = getGameById(game.getId());
+		if(gameToUpdate != null)
+		{
+			gameToUpdate.setTitle(game.getTitle());
+			gameToUpdate.setGenre(game.getGenre());
+			gameToUpdate.setDeveloper(game.getDeveloper());
+			gameToUpdate.setPublisher(game.getPublisher());
+			gameToUpdate.setReleaseDate(game.getReleaseDate());
+		}
 	}
 
 	@Override
