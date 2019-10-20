@@ -17,7 +17,7 @@ public class GameManagerTest
 	@Test
 	public void emptyTest()
 	{
-		Assert.assertTrue(true);
+		Assert.assertTrue(true); //spr czy wszystkie importy, frameworki działają
 	}
 	
 	@Test

@@ -46,6 +46,10 @@ public class GameManagerImpl implements GameManager
 			gameToUpdate.setPublisher(game.getPublisher());
 			gameToUpdate.setReleaseDate(game.getReleaseDate());
 		}
+		else
+		{
+			//rzucić wyjątek
+		}
 	}
 
 	@Override
