@@ -1,7 +1,11 @@
 package com.hawliczek.tau.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.atMost;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -18,7 +22,7 @@ import org.junit.runners.JUnit4;
 import org.mockito.Mock;
 
 import com.hawliczek.tau.domain.Game;
-import com.hawliczek.tau.service.labone.GameManagerImpl;
+import com.hawliczek.tau.service.GameManagerImpl;
 
 @RunWith(JUnit4.class)
 public class GameTimeTest
@@ -42,7 +46,7 @@ public class GameTimeTest
 		gameManager.addGame(game1);
 		
 		Game addedGame = gameManager.getGameById(1);
-		verify(gameManager, times(1)).setTimeOfAddingGame(game1);
+		verify(gameManager, atMost(1)).setTimeOfAddingGame(game1);
 		Assert.assertNotNull(addedGame.getAddGameTime());
 	}
 	
@@ -58,7 +62,7 @@ public class GameTimeTest
 		game2.setPublisher("PlayWay S.A.");
 		gameManager.updateGame(game2, 2);
 		
-		verify(gameManager, times(1)).setTimeOfUpdatingGame(game2);
+		verify(gameManager, atLeastOnce()).setTimeOfUpdatingGame(game2);
 		Assert.assertNotNull(game2.getUpdateGameTime());
 	}
 	
@@ -73,6 +77,7 @@ public class GameTimeTest
 		
 		Game readGame = gameManager.getGameById(3);
 		
+		verify(gameManager, never()).deleteGame(3);
 		verify(gameManager, times(1)).setTimeOfLastReadingGame(readGame);
 		Assert.assertNotNull(readGame.getReadGameTime());
 	}
@@ -94,7 +99,7 @@ public class GameTimeTest
 		
 		for(Game game : games)
 		{
-			verify(gameManager, times(1)).setTimeOfLastReadingGame(game);
+			verify(gameManager, atLeast(1)).setTimeOfLastReadingGame(game);
 			Assert.assertNotNull(game.getReadGameTime());
 		}
 	}
@@ -111,10 +116,28 @@ public class GameTimeTest
 		Game testGame = gameManager.getGameById(7);
 		testGame.setDeveloper("Bethesda Game Studios");
 		gameManager.updateGame(testGame, 7);
-		Game testedGame = gameManager.getGameById(7);
+		Game testedGame = gameManager.getGameById(7);		
+		
+		verify(gameManager, atMost(1)).getTimeInfo(testedGame);
 		
 		Assert.assertNotNull(testedGame.getReadGameTime());
 		Assert.assertNotNull(testedGame.getAddGameTime());
 		Assert.assertNotNull(testedGame.getUpdateGameTime());
+	}
+	
+	@Test
+	public void setSaveAddGameTimeMethodShouldSwitchOn() throws Exception
+	{
+		GameManagerImpl gameManager = spy(GameManagerImpl.class);
+		
+		when((gameManager).getCurrentTime()).thenReturn(mockTime);
+		gameManager.setSaveAddGameTime(true);
+		Game game = new Game(8, "Heroes of Might & Magic III - HD Edition", "Strategia", "Dotemu", "Ubisoft Entertainment", "29-01-2015");
+		gameManager.addGame(game);
+		
+		verify(gameManager, times(1)).setTimeOfAddingGame(game);
+		
+		Assert.assertNotNull(game.getAddGameTime());
+		assertEquals(mockTime, game.getAddGameTime());
 	}
 }

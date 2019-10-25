@@ -1,4 +1,4 @@
-package com.hawliczek.tau.service.labone;
+package com.hawliczek.tau.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -18,5 +18,12 @@ public interface GameManager
 	public void setTimeOfAddingGame(Game game) throws Exception;
 	public void setTimeOfUpdatingGame(Game game) throws Exception;
 	
-	public Game getDateInfo(Game game) throws Exception;
+	public Game getTimeInfo(Game game) throws Exception;
+	
+	public boolean isSaveAddGameTime();
+	public boolean isSaveUpdateGameTime();
+	public boolean isSaveReadGameTime();
+	public void setSaveAddGameTime(boolean saveAddGameTime);
+	public void setSaveUpdateGameTime(boolean saveUpdateGameTime);
+	public void setSaveReadGameTime(boolean saveReadGameTime);
 }

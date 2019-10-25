@@ -1,4 +1,4 @@
-package com.hawliczek.tau.service.labone;
+package com.hawliczek.tau.service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -9,7 +9,11 @@ import com.hawliczek.tau.domain.Game;
 public class GameManagerImpl implements GameManager
 {
 	List<Game> gameList = new ArrayList<Game>();
-
+	
+	private boolean saveAddGameTime = true;
+	private boolean saveUpdateGameTime = true;
+	private boolean saveReadGameTime = true;
+	
 	@Override
 	public void addGame(Game game) throws Exception
 	{
@@ -97,11 +101,51 @@ public class GameManagerImpl implements GameManager
 	}
 
 	@Override
-	public Game getDateInfo(Game game) throws Exception
+	public Game getTimeInfo(Game game) throws Exception
 	{
 		setTimeOfAddingGame(game);
 		setTimeOfLastReadingGame(game);
 		setTimeOfUpdatingGame(game);
 		return game;
+	}
+
+	@Override
+	public boolean isSaveAddGameTime()
+	{
+		return saveAddGameTime;
+	}
+
+	@Override
+	public boolean isSaveUpdateGameTime()
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isSaveReadGameTime()
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void setSaveAddGameTime(boolean saveAddGameTime)
+	{
+		this.saveAddGameTime = saveAddGameTime;
+	}
+
+	@Override
+	public void setSaveUpdateGameTime(boolean saveUpdateGameTime)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setSaveReadGameTime(boolean saveReadGameTime)
+	{
+		// TODO Auto-generated method stub
+		
 	}
 }

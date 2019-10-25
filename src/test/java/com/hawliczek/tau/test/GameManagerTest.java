@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import com.hawliczek.tau.domain.Game;
-import com.hawliczek.tau.service.labone.GameManagerImpl;
+import com.hawliczek.tau.service.GameManagerImpl;
 
 @RunWith(JUnit4.class)
 public class GameManagerTest
