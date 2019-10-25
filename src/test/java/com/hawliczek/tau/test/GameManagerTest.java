@@ -1,4 +1,4 @@
-package com.hawliczek.tau.labone;
+package com.hawliczek.tau.test;
 
 import static org.junit.Assert.*;
 
@@ -6,8 +6,8 @@ import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import com.hawliczek.tau.labone.domain.Game;
-import com.hawliczek.tau.labone.service.GameManagerImpl;
+import com.hawliczek.tau.domain.Game;
+import com.hawliczek.tau.service.labone.GameManagerImpl;
 
 @RunWith(JUnit4.class)
 public class GameManagerTest

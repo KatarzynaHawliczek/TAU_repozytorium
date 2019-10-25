@@ -1,9 +1,10 @@
-package com.hawliczek.tau.labone.service;
+package com.hawliczek.tau.service.labone;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hawliczek.tau.labone.domain.Game;
+import com.hawliczek.tau.domain.Game;
 
 public class GameManagerImpl implements GameManager
 {
@@ -48,7 +49,7 @@ public class GameManagerImpl implements GameManager
 		}
 		else
 		{
-			//rzucić wyjątek
+			throw new Exception("Gry o id = " + id + " nie znaleziono");
 		}
 	}
 
@@ -60,5 +61,32 @@ public class GameManagerImpl implements GameManager
 		{
 			gameList.remove(game);
 		}
+	}
+
+	@Override
+	public void setReadGameTime(Game game) throws Exception
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setAddGameTime(Game game) throws Exception
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setUpdateGameTime(Game game) throws Exception
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public LocalDateTime getCurrentTime() throws Exception
+	{
+		return LocalDateTime.now();
 	}
 }

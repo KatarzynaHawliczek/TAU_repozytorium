@@ -1,8 +1,8 @@
-package com.hawliczek.tau.labone.domain;
+package com.hawliczek.tau.domain;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
-public class Game
+public class Game extends GameTime
 {
 	private int id;
 	private String title;
@@ -10,10 +10,6 @@ public class Game
 	private String developer;
 	private String publisher;
 	private String releaseDate;
-	private Date addTime;
-	private Date updateTime;
-	private Date readTime;
-	
 	
 	public int getId()
 	{
@@ -74,37 +70,10 @@ public class Game
 	{
 		this.releaseDate = releaseDate;
 	}
+	public Game()
+	{
+	}
 	
-	public Date getAddTime()
-	{
-		return addTime;
-	}
-
-	public void setAddTime(Date addTime)
-	{
-		this.addTime = addTime;
-	}
-
-	public Date getUpdateTime()
-	{
-		return updateTime;
-	}
-
-	public void setUpdateTime(Date updateTime)
-	{
-		this.updateTime = updateTime;
-	}
-
-	public Date getReadTime()
-	{
-		return readTime;
-	}
-
-	public void setReadTime(Date readTime)
-	{
-		this.readTime = readTime;
-	}
-
 	public Game(int id, String title, String genre, String developer, String publisher, String releaseDate)
 	{
 		this.id = id;
@@ -115,16 +84,14 @@ public class Game
 		this.releaseDate = releaseDate;
 	}
 	
-	public Game(int id, String title, String genre, String developer, String publisher, String releaseDate, Date addTime, Date updateTime, Date readTime)
+	public Game(int id, String title, String genre, String developer, String publisher, String releaseDate, LocalDateTime addGameTime, LocalDateTime updateGameTime, LocalDateTime readGameTime)
 	{
+		super(addGameTime, updateGameTime, readGameTime);
 		this.id = id;
 		this.title = title;
 		this.genre = genre;
 		this.developer = developer;
 		this.publisher = publisher;
 		this.releaseDate = releaseDate;
-		this.addTime = addTime;
-		this.updateTime = updateTime;
-		this.readTime = readTime;
 	}
 }
