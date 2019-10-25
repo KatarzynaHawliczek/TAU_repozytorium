@@ -60,7 +60,10 @@ public class GameManagerImpl implements GameManager
 			gameToUpdate.setPublisher(game.getPublisher());
 			gameToUpdate.setReleaseDate(game.getReleaseDate());
 			
-			setTimeOfUpdatingGame(gameToUpdate);
+			if(isSaveUpdateGameTime())
+			{
+				setTimeOfUpdatingGame(gameToUpdate);
+			}
 		}
 		else
 		{
@@ -121,8 +124,7 @@ public class GameManagerImpl implements GameManager
 	@Override
 	public boolean isSaveUpdateGameTime()
 	{
-		// TODO Auto-generated method stub
-		return false;
+		return saveUpdateGameTime;
 	}
 
 	@Override
@@ -141,8 +143,7 @@ public class GameManagerImpl implements GameManager
 	@Override
 	public void setSaveUpdateGameTime(boolean saveUpdateGameTime)
 	{
-		// TODO Auto-generated method stub
-		
+		this.saveUpdateGameTime = saveUpdateGameTime;
 	}
 
 	@Override

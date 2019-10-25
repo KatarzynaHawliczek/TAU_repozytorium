@@ -149,7 +149,7 @@ public class GameTimeTest
 		
 		when((gameManager).getCurrentTime()).thenReturn(mockTime);
 		gameManager.setSaveAddGameTime(false);
-		Game game9 = new Game(9, "Heroes of Might & Magic III - HD Edition", "Strategia", "Dotemu", "Ubisoft Entertainment", "29-01-2015");
+		Game game9 = new Game(9, "Far Cry Primal", "Akcja", "Ubisoft", "Ubisoft", "01-03-2016");
 		gameManager.addGame(game9);
 		
 		verify(gameManager, atLeastOnce()).isSaveAddGameTime();
@@ -157,5 +157,43 @@ public class GameTimeTest
 		
 		Assert.assertNull(game9.getAddGameTime());
 		assertEquals(null, game9.getAddGameTime());
+	}
+	
+	@Test
+	public void setSaveUpdateGameTimeMethodShouldSwitchOn() throws Exception
+	{
+		GameManagerImpl gameManager = spy(GameManagerImpl.class);
+		
+		when((gameManager).getCurrentTime()).thenReturn(mockTime);
+		gameManager.setSaveUpdateGameTime(true);
+		Game game10 = new Game(10, "Fishing Planet", "Symulator", "Fishing Planet LLC", "Fishing Planet", "11-08-2015");
+		gameManager.addGame(game10);
+		game10.setPublisher("Fishing Planet LLC");
+		gameManager.updateGame(game10, 10);
+		
+		verify(gameManager, atLeastOnce()).isSaveUpdateGameTime();
+		verify(gameManager, times(1)).setTimeOfUpdatingGame(game10);
+		
+		Assert.assertNotNull(game10.getUpdateGameTime());
+		assertEquals(mockTime, game10.getUpdateGameTime());
+	}
+	
+	@Test
+	public void setSaveUpdateGameTimeMethodShouldSwitchOff() throws Exception
+	{
+		GameManagerImpl gameManager = spy(GameManagerImpl.class);
+		
+		when((gameManager).getCurrentTime()).thenReturn(mockTime);
+		gameManager.setSaveUpdateGameTime(false);
+		Game game11 = new Game(11, "Assassin's Creed Origins", "Akcja", "Ubisoft", "Ubisoft", "27-10-2017");
+		gameManager.addGame(game11);
+		game11.setDeveloper("Ubisoft Montreal");
+		gameManager.updateGame(game11, 11);
+		
+		verify(gameManager, atLeastOnce()).isSaveUpdateGameTime();
+		verify(gameManager, never()).setTimeOfUpdatingGame(game11);
+		
+		Assert.assertNull(game11.getUpdateGameTime());
+		assertEquals(null, game11.getUpdateGameTime());
 	}
 }
