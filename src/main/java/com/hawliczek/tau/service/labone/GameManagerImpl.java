@@ -11,8 +11,9 @@ public class GameManagerImpl implements GameManager
 	List<Game> gameList = new ArrayList<Game>();
 
 	@Override
-	public void addGame(Game game)
+	public void addGame(Game game) throws Exception
 	{
+		setAddGameTime(game);
 		gameList.add(game);
 	}
 
@@ -73,8 +74,7 @@ public class GameManagerImpl implements GameManager
 	@Override
 	public void setAddGameTime(Game game) throws Exception
 	{
-		// TODO Auto-generated method stub
-		
+		game.setAddGameTime(getCurrentTime());
 	}
 
 	@Override
