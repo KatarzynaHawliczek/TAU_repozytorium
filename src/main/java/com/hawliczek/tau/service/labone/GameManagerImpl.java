@@ -20,6 +20,10 @@ public class GameManagerImpl implements GameManager
 	@Override
 	public List<Game> getAllGames() throws Exception
 	{
+		for(Game game : gameList)
+		{
+			setTimeOfLastReadingGame(game);
+		}
 		return gameList;
 	}
 
@@ -30,6 +34,7 @@ public class GameManagerImpl implements GameManager
 		{
 			if(game.getId() == id)
 			{
+				setTimeOfLastReadingGame(game);
 				return game;
 			}
 		}
@@ -69,7 +74,7 @@ public class GameManagerImpl implements GameManager
 	@Override
 	public void setTimeOfLastReadingGame(Game game) throws Exception
 	{
-		// TODO Auto-generated method stub
+		game.setReadGameTime(getCurrentTime());
 		
 	}
 
