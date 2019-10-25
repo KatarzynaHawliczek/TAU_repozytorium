@@ -13,7 +13,7 @@ public class GameManagerImpl implements GameManager
 	@Override
 	public void addGame(Game game) throws Exception
 	{
-		setAddGameTime(game);
+		setTimeOfAddingGame(game);
 		gameList.add(game);
 	}
 
@@ -47,6 +47,8 @@ public class GameManagerImpl implements GameManager
 			gameToUpdate.setDeveloper(game.getDeveloper());
 			gameToUpdate.setPublisher(game.getPublisher());
 			gameToUpdate.setReleaseDate(game.getReleaseDate());
+			
+			setTimeOfUpdatingGame(gameToUpdate);
 		}
 		else
 		{
@@ -65,23 +67,22 @@ public class GameManagerImpl implements GameManager
 	}
 
 	@Override
-	public void setReadGameTime(Game game) throws Exception
+	public void setTimeOfLastReadingGame(Game game) throws Exception
 	{
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void setAddGameTime(Game game) throws Exception
+	public void setTimeOfAddingGame(Game game) throws Exception
 	{
 		game.setAddGameTime(getCurrentTime());
 	}
 
 	@Override
-	public void setUpdateGameTime(Game game) throws Exception
+	public void setTimeOfUpdatingGame(Game game) throws Exception
 	{
-		// TODO Auto-generated method stub
-		
+		game.setUpdateGameTime(getCurrentTime());
 	}
 
 	@Override

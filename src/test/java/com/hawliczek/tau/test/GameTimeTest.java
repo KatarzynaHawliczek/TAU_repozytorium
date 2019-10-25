@@ -40,7 +40,23 @@ public class GameTimeTest
 		gameManager.addGame(game1);
 		
 		Game game2 = gameManager.getGameById(1);
-		verify(gameManager, times(1)).setAddGameTime(game1);
+		verify(gameManager, times(1)).setTimeOfAddingGame(game1);
 		Assert.assertNotNull(game2.getAddGameTime());
-	}		
+	}
+	
+	@Test
+	public void setUpdateGameTimeMethodShouldSetDateWhenUpdatesAGame() throws Exception
+	{
+		GameManagerImpl gameManager = spy(GameManagerImpl.class);
+		
+		when((gameManager).getCurrentTime()).thenReturn(mockTime);
+		Game game2 = new Game(2, "Car Mechanic Simulator 2018", "Symulacje", "Red Dot Games", "PlayWay", "28-07-2017");
+		gameManager.addGame(game2);
+		
+		game2.setPublisher("PlayWay S.A.");
+		gameManager.updateGame(game2, 2);
+		
+		verify(gameManager, times(1)).setTimeOfUpdatingGame(game2);
+		Assert.assertNotNull(game2.getUpdateGameTime());
+	}
 }
