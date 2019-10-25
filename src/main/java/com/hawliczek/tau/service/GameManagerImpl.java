@@ -17,7 +17,10 @@ public class GameManagerImpl implements GameManager
 	@Override
 	public void addGame(Game game) throws Exception
 	{
-		setTimeOfAddingGame(game);
+		if(isSaveAddGameTime())
+		{
+			setTimeOfAddingGame(game);
+		}
 		gameList.add(game);
 	}
 

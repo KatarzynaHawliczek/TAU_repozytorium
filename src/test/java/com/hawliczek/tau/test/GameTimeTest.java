@@ -77,7 +77,7 @@ public class GameTimeTest
 		
 		Game readGame = gameManager.getGameById(3);
 		
-		verify(gameManager, never()).deleteGame(3);
+		//verify(gameManager, never()).deleteGame(3);
 		verify(gameManager, times(1)).setTimeOfLastReadingGame(readGame);
 		Assert.assertNotNull(readGame.getReadGameTime());
 	}
@@ -132,12 +132,30 @@ public class GameTimeTest
 		
 		when((gameManager).getCurrentTime()).thenReturn(mockTime);
 		gameManager.setSaveAddGameTime(true);
-		Game game = new Game(8, "Heroes of Might & Magic III - HD Edition", "Strategia", "Dotemu", "Ubisoft Entertainment", "29-01-2015");
-		gameManager.addGame(game);
+		Game game8 = new Game(8, "Heroes of Might & Magic III - HD Edition", "Strategia", "Dotemu", "Ubisoft Entertainment", "29-01-2015");
+		gameManager.addGame(game8);
 		
-		verify(gameManager, times(1)).setTimeOfAddingGame(game);
+		verify(gameManager, atLeastOnce()).isSaveAddGameTime();
+		verify(gameManager, times(1)).setTimeOfAddingGame(game8);
 		
-		Assert.assertNotNull(game.getAddGameTime());
-		assertEquals(mockTime, game.getAddGameTime());
+		Assert.assertNotNull(game8.getAddGameTime());
+		assertEquals(mockTime, game8.getAddGameTime());
+	}
+	
+	@Test
+	public void setSaveAddGameTimeMethodShouldSwitchOff() throws Exception
+	{
+		GameManagerImpl gameManager = spy(GameManagerImpl.class);
+		
+		when((gameManager).getCurrentTime()).thenReturn(mockTime);
+		gameManager.setSaveAddGameTime(false);
+		Game game9 = new Game(9, "Heroes of Might & Magic III - HD Edition", "Strategia", "Dotemu", "Ubisoft Entertainment", "29-01-2015");
+		gameManager.addGame(game9);
+		
+		verify(gameManager, atLeastOnce()).isSaveAddGameTime();
+		verify(gameManager, never()).setTimeOfAddingGame(game9);
+		
+		Assert.assertNull(game9.getAddGameTime());
+		assertEquals(null, game9.getAddGameTime());
 	}
 }
