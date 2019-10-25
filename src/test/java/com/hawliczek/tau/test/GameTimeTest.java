@@ -5,7 +5,9 @@ import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.atMost;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.only;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -123,6 +125,20 @@ public class GameTimeTest
 		Assert.assertNotNull(testedGame.getReadGameTime());
 		Assert.assertNotNull(testedGame.getAddGameTime());
 		Assert.assertNotNull(testedGame.getUpdateGameTime());
+	}
+	
+	@Test
+	public void testOnlyMethod() throws Exception
+	{
+        GameManagerImpl gameManager = spy(GameManagerImpl.class);
+		
+		when((gameManager).getCurrentTime()).thenReturn(mockTime);
+		Game testGame = mock(Game.class);
+		testGame.setTitle("Perfect World International");
+		
+		verify(testGame, only()).setTitle("Perfect World International");
+		
+		Assert.assertNotNull(testGame.getTitle(), "Perfect World International");
 	}
 	
 	@Test
