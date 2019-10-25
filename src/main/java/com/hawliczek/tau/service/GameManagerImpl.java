@@ -29,7 +29,10 @@ public class GameManagerImpl implements GameManager
 	{
 		for(Game game : gameList)
 		{
-			setTimeOfLastReadingGame(game);
+			if(isSaveReadGameTime())
+			{
+				setTimeOfLastReadingGame(game);
+			}
 		}
 		return gameList;
 	}
@@ -41,7 +44,10 @@ public class GameManagerImpl implements GameManager
 		{
 			if(game.getId() == id)
 			{
-				setTimeOfLastReadingGame(game);
+				if(isSaveReadGameTime())
+				{
+					setTimeOfLastReadingGame(game);
+				}
 				return game;
 			}
 		}
@@ -130,8 +136,7 @@ public class GameManagerImpl implements GameManager
 	@Override
 	public boolean isSaveReadGameTime()
 	{
-		// TODO Auto-generated method stub
-		return false;
+		return saveReadGameTime;
 	}
 
 	@Override
@@ -149,7 +154,6 @@ public class GameManagerImpl implements GameManager
 	@Override
 	public void setSaveReadGameTime(boolean saveReadGameTime)
 	{
-		// TODO Auto-generated method stub
-		
+		this.saveReadGameTime = saveReadGameTime;
 	}
 }

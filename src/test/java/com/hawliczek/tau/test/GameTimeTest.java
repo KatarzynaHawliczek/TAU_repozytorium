@@ -166,7 +166,7 @@ public class GameTimeTest
 		
 		when((gameManager).getCurrentTime()).thenReturn(mockTime);
 		gameManager.setSaveUpdateGameTime(true);
-		Game game10 = new Game(10, "Fishing Planet", "Symulator", "Fishing Planet LLC", "Fishing Planet", "11-08-2015");
+		Game game10 = new Game(10, "Fishing Planet", "Symulacje", "Fishing Planet LLC", "Fishing Planet", "11-08-2015");
 		gameManager.addGame(game10);
 		game10.setPublisher("Fishing Planet LLC");
 		gameManager.updateGame(game10, 10);
@@ -195,5 +195,41 @@ public class GameTimeTest
 		
 		Assert.assertNull(game11.getUpdateGameTime());
 		assertEquals(null, game11.getUpdateGameTime());
+	}
+	
+	@Test
+	public void setSaveReadGameTimeMethodShouldSwitchOn() throws Exception
+	{
+		GameManagerImpl gameManager = spy(GameManagerImpl.class);
+		
+		when((gameManager).getCurrentTime()).thenReturn(mockTime);
+		gameManager.setSaveReadGameTime(true);
+		Game game12 = new Game(12, "Black Desert Online", "MMO", "Pearl Abyss", "Kakao Games Europe B.V.", "24-05-2017");
+		gameManager.addGame(game12);
+		Game readGame = gameManager.getGameById(12);
+		
+		verify(gameManager, atLeastOnce()).isSaveReadGameTime();
+		verify(gameManager, times(1)).setTimeOfLastReadingGame(game12);
+		
+		Assert.assertNotNull(readGame.getReadGameTime());
+		assertEquals(mockTime, readGame.getReadGameTime());
+	}
+	
+	@Test
+	public void setSaveReadGameTimeMethodShouldSwitchOff() throws Exception
+	{
+		GameManagerImpl gameManager = spy(GameManagerImpl.class);
+		
+		when((gameManager).getCurrentTime()).thenReturn(mockTime);
+		gameManager.setSaveReadGameTime(false);
+		Game game13 = new Game(13, "MudRunner", "Symulacje", "Saber Interactive", "Focus Home Interactive", "31-10-2017");
+		gameManager.addGame(game13);
+		Game readGame = gameManager.getGameById(13);
+		
+		verify(gameManager, atLeastOnce()).isSaveReadGameTime();
+		verify(gameManager, never()).setTimeOfLastReadingGame(game13);
+		
+		Assert.assertNull(readGame.getReadGameTime());
+		assertEquals(null, readGame.getReadGameTime());
 	}
 }
