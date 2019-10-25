@@ -13,9 +13,10 @@ public interface GameManager
 	public void updateGame(Game game, int id) throws Exception;
 	public void deleteGame(int id) throws Exception;
 	
+	public LocalDateTime getCurrentTime() throws Exception;
 	public void setTimeOfLastReadingGame(Game game) throws Exception;
 	public void setTimeOfAddingGame(Game game) throws Exception;
 	public void setTimeOfUpdatingGame(Game game) throws Exception;
 	
-	public LocalDateTime getCurrentTime() throws Exception;
+	public Game getDateInfo(Game game) throws Exception;
 }

@@ -95,4 +95,13 @@ public class GameManagerImpl implements GameManager
 	{
 		return LocalDateTime.now();
 	}
+
+	@Override
+	public Game getDateInfo(Game game) throws Exception
+	{
+		setTimeOfAddingGame(game);
+		setTimeOfLastReadingGame(game);
+		setTimeOfUpdatingGame(game);
+		return game;
+	}
 }

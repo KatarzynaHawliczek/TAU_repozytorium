@@ -1,6 +1,7 @@
 package com.hawliczek.tau.test;
 
 import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -90,10 +91,30 @@ public class GameTimeTest
 		gameManager.addGame(game6);
 		
 		List<Game> games = gameManager.getAllGames();
+		
 		for(Game game : games)
 		{
 			verify(gameManager, times(1)).setTimeOfLastReadingGame(game);
 			Assert.assertNotNull(game.getReadGameTime());
 		}
+	}
+	
+	@Test
+	public void getDateInfoMethodShouldGetDateInformationsOfAGame() throws Exception
+	{
+		GameManagerImpl gameManager = spy(GameManagerImpl.class);
+		
+		when((gameManager).getCurrentTime()).thenReturn(mockTime);
+		Game game7 = new Game(7, "The Elder Scrolls V: Skyrim Special Edition", "RPG", "Bethesda", "Bethesda Softworks", "28-10-2016");
+		gameManager.addGame(game7);
+		
+		Game testGame = gameManager.getGameById(7);
+		testGame.setDeveloper("Bethesda Game Studios");
+		gameManager.updateGame(testGame, 7);
+		Game testedGame = gameManager.getGameById(7);
+		
+		Assert.assertNotNull(testedGame.getReadGameTime());
+		Assert.assertNotNull(testedGame.getAddGameTime());
+		Assert.assertNotNull(testedGame.getUpdateGameTime());
 	}
 }
