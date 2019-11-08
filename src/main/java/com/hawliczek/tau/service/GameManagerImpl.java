@@ -104,17 +104,24 @@ public class GameManagerImpl implements GameManager
 	@Override
 	public List<Game> deleteGameById(int id_from, int id_to) throws Exception
 	{
-		List<Game> deletedGames = new ArrayList<Game>();
-		for(int i=id_from; i<=id_to; i++)
+		if(id_from >=1 && id_to <= gameList.size())
 		{
-			Game game = getGameById(i);
-			if(game != null)
-			{
-				deletedGames.add(game);
-				gameList.remove(game);
-			}
+			List<Game> deletedGames = new ArrayList<Game>();
+		    for(int i=id_from; i<=id_to; i++)
+		    {
+		    	Game game = getGameById(i);
+		    	if(game != null)
+		    	{
+		    		deletedGames.add(game);
+		    		gameList.remove(game);
+		    	}
+		    }
+		    return deletedGames;
 		}
-		return deletedGames;
+		else
+		{
+			throw new IllegalArgumentException("Nieprawidłowy przedział!");
+		}
 	}
 	
 	@Override
