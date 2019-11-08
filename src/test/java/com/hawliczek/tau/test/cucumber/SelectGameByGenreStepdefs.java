@@ -2,6 +2,8 @@ package com.hawliczek.tau.test.cucumber;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import com.hawliczek.tau.domain.Game;
 import com.hawliczek.tau.service.GameManagerImpl;
 
@@ -10,12 +12,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 
-public class Stepdefs
+public class SelectGameByGenreStepdefs
 {
 	private GameManagerImpl gameManager = new GameManagerImpl();
-	private Game selectedGame = new Game();
+	private List<Game> selectedGames;
 	
-	@Given("list of games")
+	@Given("^list of games$")
 	public void list_of_games() throws Exception 
 	{
 		Game game1 = new Game(1, "Rise Of The Tomb Raider", "Akcja", "Crystal Dynamics", "Square Enix", "09-02-2016");
@@ -33,15 +35,18 @@ public class Stepdefs
 		gameManager.addGame(game6);
 	}
 
-	@When("game is selected by {string}")
+	@When("^game is selected by (.*)$")
 	public void game_is_selected_by(String genre) throws Exception 
 	{
-		selectedGame = gameManager.getGameByGenre(genre);
+		selectedGames = gameManager.getGamesByGenre(genre);
 	}
 
-	@Then("the result should be {string}")
-	public void the_result_should_be(String title) 
+	@Then("^the result should be (.*)$")
+	public void the_result_should_be(String title) throws Exception
 	{
-		assertEquals(title, selectedGame.getTitle());
+		for(Game game : selectedGames)
+		{
+			assertEquals(title, game.getTitle());
+		}
 	}
 }

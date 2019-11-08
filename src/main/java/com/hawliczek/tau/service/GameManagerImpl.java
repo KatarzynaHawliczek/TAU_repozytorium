@@ -55,16 +55,17 @@ public class GameManagerImpl implements GameManager
 	}
 
 	@Override
-	public Game getGameByGenre(String genre) throws Exception
+	public List<Game> getGamesByGenre(String genre) throws Exception
 	{
+		List<Game> selectedGames = new ArrayList<Game>();
 		for(Game game : gameList)
 		{
 			if(game.getGenre().equals(genre))
 			{
-				return game;
+				selectedGames.add(game);
 			}
 		}
-		return null;
+		return selectedGames;
 	}
 	
 	@Override

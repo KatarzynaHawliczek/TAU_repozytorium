@@ -1,7 +1,14 @@
 Feature: Select game by genre
   By selecting a game by genre I should get a game title with given genre.
 
-  Scenario: I get game title: Black Desert Online with genre: MMO
+  Scenario Outline: I get games with given genre
     Given list of games
-    When game is selected by "MMO"
-    Then the result should be "Black Desert Online"
+    When game is selected by "<genre>"
+    Then the result should be a list of games with "<title>"
+    
+    Examples:
+      | genre     | title                       |
+      | MMO       | Black Desert Online         |
+      | Symulacje | Car Mechanic Simulator 2018 |  
+      | Akcja     | Rise Of The Tomb Raider     |
+      | Akcja     | Mafia III                   |
