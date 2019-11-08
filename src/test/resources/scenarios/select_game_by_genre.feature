@@ -1,5 +1,5 @@
-Feature: Select game by genre
-  By selecting a game by genre I should get a game title with given genre.
+Feature: Select games by genre
+  By selecting a game by genre I should get a list of games titles with given genre.
 
   Scenario Outline: I get games with given genre
     Given list of games

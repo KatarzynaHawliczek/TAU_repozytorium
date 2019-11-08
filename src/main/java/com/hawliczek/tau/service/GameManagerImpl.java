@@ -102,6 +102,22 @@ public class GameManagerImpl implements GameManager
 	}
 
 	@Override
+	public List<Game> deleteGameById(int id_from, int id_to) throws Exception
+	{
+		List<Game> deletedGames = new ArrayList<Game>();
+		for(int i=id_from; i<=id_to; i++)
+		{
+			Game game = getGameById(i);
+			if(game != null)
+			{
+				deletedGames.add(game);
+				gameList.remove(game);
+			}
+		}
+		return deletedGames;
+	}
+	
+	@Override
 	public void setTimeOfLastReadingGame(Game game) throws Exception
 	{
 		game.setReadGameTime(getCurrentTime());

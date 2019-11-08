@@ -13,6 +13,7 @@ public interface GameManager
 	public List<Game> getGamesByGenre(String genre) throws Exception;
 	public void updateGame(Game game, int id) throws Exception;
 	public void deleteGame(int id) throws Exception;
+	public List<Game> deleteGameById(int id_from, int id_to) throws Exception;
 	
 	public LocalDateTime getCurrentTime() throws Exception;
 	public void setTimeOfLastReadingGame(Game game) throws Exception;
