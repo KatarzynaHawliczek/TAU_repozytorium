@@ -1,8 +1,6 @@
 package com.hawliczek.tau.domain;
 
-import java.time.LocalDateTime;
-
-public class Game extends GameTime
+public class JMGame
 {
 	private int id;
 	private String title;
@@ -70,11 +68,12 @@ public class Game extends GameTime
 	{
 		this.releaseDate = releaseDate;
 	}
-	public Game()
+	
+	public JMGame()
 	{
 	}
 	
-	public Game(int id, String title, String genre, String developer, String publisher, String releaseDate)
+	public JMGame(int id, String title, String genre, String developer, String publisher, String releaseDate)
 	{
 		this.id = id;
 		this.title = title;
@@ -83,15 +82,4 @@ public class Game extends GameTime
 		this.publisher = publisher;
 		this.releaseDate = releaseDate;
 	}
-	
-	public Game(int id, String title, String genre, String developer, String publisher, String releaseDate, LocalDateTime addGameTime, LocalDateTime updateGameTime, LocalDateTime readGameTime)
-	{
-		super(addGameTime, updateGameTime, readGameTime);
-		this.id = id;
-		this.title = title;
-		this.genre = genre;
-		this.developer = developer;
-		this.publisher = publisher;
-		this.releaseDate = releaseDate;
-	}	
 }

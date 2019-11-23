@@ -1,0 +1,21 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1574543257059,276,Dodanie gry z pliku,200,OK,Wczytanie danych z pliku .csv 1-1,text,true,,282,339,1,1,http://localhost:8080/api/game,276,0,35
+1574543257337,3,Dodanie gry z pliku,200,OK,Wczytanie danych z pliku .csv 1-1,text,true,,294,351,1,1,http://localhost:8080/api/game,3,0,0
+1574543257341,2,Dodanie gry z pliku,200,OK,Wczytanie danych z pliku .csv 1-1,text,true,,264,321,1,1,http://localhost:8080/api/game,2,0,0
+1574543257344,2,Dodanie gry z pliku,200,OK,Wczytanie danych z pliku .csv 1-1,text,true,,290,347,1,1,http://localhost:8080/api/game,2,0,0
+1574543257347,2,Dodanie gry z pliku,200,OK,Wczytanie danych z pliku .csv 1-1,text,true,,300,357,1,1,http://localhost:8080/api/game,2,0,0
+1574543257350,2,Dodanie gry z pliku,200,OK,Wczytanie danych z pliku .csv 1-1,text,true,,315,372,1,1,http://localhost:8080/api/game,2,0,0
+1574543257353,2,Dodanie gry z pliku,200,OK,Wczytanie danych z pliku .csv 1-1,text,true,,324,381,1,1,http://localhost:8080/api/game,2,0,0
+1574543257356,2,Dodanie gry z pliku,200,OK,Wczytanie danych z pliku .csv 1-1,text,true,,315,372,1,1,http://localhost:8080/api/game,2,0,0
+1574543257359,2,Dodanie gry z pliku,200,OK,Wczytanie danych z pliku .csv 1-1,text,true,,272,329,1,1,http://localhost:8080/api/game,2,0,0
+1574543257362,2,Dodanie gry z pliku,200,OK,Wczytanie danych z pliku .csv 1-1,text,true,,299,356,1,1,http://localhost:8080/api/game,2,0,0
+1574543257365,2,Dodanie gry z pliku,200,OK,Wczytanie danych z pliku .csv 1-1,text,true,,292,349,1,1,http://localhost:8080/api/game,2,0,0
+1574543257368,2,Dodanie gry z pliku,200,OK,Wczytanie danych z pliku .csv 1-1,text,true,,296,353,1,1,http://localhost:8080/api/game,2,0,0
+1574543257371,2,Dodanie gry z pliku,200,OK,Wczytanie danych z pliku .csv 1-1,text,true,,297,354,1,1,http://localhost:8080/api/game,2,0,0
+1574543259555,1251,JDBC Request - DB connect,200,OK,DB connect 1-1,text,true,,33,0,1,1,null,1250,0,1247
+1574543260811,6,Dodanie gry,200,OK,Thread Group 2-1,text,true,,271,332,1,1,http://localhost:8080/api/game,5,0,1
+1574543260817,13,Pobranie wszystkich gier,200,OK,Thread Group 2-1,text,true,,2151,128,1,1,http://localhost:8080/api/games,13,0,0
+1574543260831,7,Aktualizacja gry,200,OK,Thread Group 2-1,text,true,,152,352,1,1,http://localhost:8080/api/game/2,7,0,0
+1574543260838,7,Pobranie gry,200,OK,Thread Group 2-1,text,true,,293,129,1,1,http://localhost:8080/api/game/2,7,0,0
+1574543260845,5,Usunięcie gry,200,OK,Thread Group 2-1,text,true,,152,215,1,1,http://localhost:8080/api/game/6,5,0,0
+1574543260853,3,Usunięcie wszystkich gier,200,OK,tearDown Thread Group 1-1,text,true,,10,0,1,1,null,2,0,1
