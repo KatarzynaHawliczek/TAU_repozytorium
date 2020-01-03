@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20200103 15:56:20.132" rpa="false">
+<suite id="s1" name="TAU repozytorium" source="D:\Notatki\Semestr7\TAU\TAU_repozytorium">
+<suite id="s1-s1" name="Src" source="D:\Notatki\Semestr7\TAU\TAU_repozytorium\src">
+<suite id="s1-s1-s1" name="Test" source="D:\Notatki\Semestr7\TAU\TAU_repozytorium\src\test">
+<suite id="s1-s1-s1-s1" name="Java" source="D:\Notatki\Semestr7\TAU\TAU_repozytorium\src\test\java">
+<suite id="s1-s1-s1-s1-s1" name="Com" source="D:\Notatki\Semestr7\TAU\TAU_repozytorium\src\test\java\com">
+<suite id="s1-s1-s1-s1-s1-s1" name="Hawliczek" source="D:\Notatki\Semestr7\TAU\TAU_repozytorium\src\test\java\com\hawliczek">
+<suite id="s1-s1-s1-s1-s1-s1-s1" name="Tau" source="D:\Notatki\Semestr7\TAU\TAU_repozytorium\src\test\java\com\hawliczek\tau">
+<suite id="s1-s1-s1-s1-s1-s1-s1-s1" name="Test" source="D:\Notatki\Semestr7\TAU\TAU_repozytorium\src\test\java\com\hawliczek\tau\test">
+<suite id="s1-s1-s1-s1-s1-s1-s1-s1-s1" name="Robot" source="D:\Notatki\Semestr7\TAU\TAU_repozytorium\src\test\java\com\hawliczek\tau\test\robot">
+<suite id="s1-s1-s1-s1-s1-s1-s1-s1-s1-s1" name="Zad1" source="D:\Notatki\Semestr7\TAU\TAU_repozytorium\src\test\java\com\hawliczek\tau\test\robot\zad1">
+<suite id="s1-s1-s1-s1-s1-s1-s1-s1-s1-s1-s1" name="registrationValidation" source="D:\Notatki\Semestr7\TAU\TAU_repozytorium\src\test\java\com\hawliczek\tau\test\robot\zad1\registrationValidation.robot">
+<kw name="Open navigator in mobile resolution" library="keywords" type="setup">
+<kw name="Open Browser" library="selenium">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:20.384" level="INFO">Opening browser 'chrome' to base url 'http://automationpractice.com/index.php?controller=authentication&amp;back=my-account'.</msg>
+<status status="PASS" starttime="20200103 15:56:20.383" endtime="20200103 15:56:28.569"></status>
+</kw>
+<kw name="Set Window Size" library="selenium">
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<arguments>
+<arg>480</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20200103 15:56:28.570" endtime="20200103 15:56:32.694"></status>
+</kw>
+<status status="PASS" starttime="20200103 15:56:20.383" endtime="20200103 15:56:32.695"></status>
+</kw>
+<test id="s1-s1-s1-s1-s1-s1-s1-s1-s1-s1-s1-t1" name="Scenario 01: Successful Registration">
+<kw name="Register with valid credentials" library="keywords">
+<arguments>
+<arg>${email_create}</arg>
+<arg>${customer_firstname}</arg>
+<arg>${customer_lastname}</arg>
+<arg>${passwd}</arg>
+<arg>${address1}</arg>
+<arg>${city}</arg>
+<arg>${postcode}</arg>
+<arg>${phone_mobile}</arg>
+</arguments>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=email_create</arg>
+<arg>${email_create}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:32.699" level="INFO">Typing text 'kaha666@vp.pl' into text field 'id=email_create'.</msg>
+<status status="PASS" starttime="20200103 15:56:32.698" endtime="20200103 15:56:32.843"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#SubmitCreate &gt; span</arg>
+</arguments>
+<msg timestamp="20200103 15:56:32.844" level="INFO">Clicking element 'css=#SubmitCreate &gt; span'.</msg>
+<status status="PASS" starttime="20200103 15:56:32.843" endtime="20200103 15:56:32.954"></status>
+</kw>
+<kw name="Page Should Not Contain Element" library="selenium">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=create_account_error</arg>
+</arguments>
+<msg timestamp="20200103 15:56:32.967" level="INFO">Current page does not contain element 'css=create_account_error'.</msg>
+<status status="PASS" starttime="20200103 15:56:32.954" endtime="20200103 15:56:32.968"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>submitAccount</arg>
+</arguments>
+<status status="PASS" starttime="20200103 15:56:32.968" endtime="20200103 15:56:34.451"></status>
+</kw>
+<kw name="Page Should Contain Element" library="selenium">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=#submitAccount</arg>
+</arguments>
+<msg timestamp="20200103 15:56:34.464" level="INFO">Current page contains element 'css=#submitAccount'.</msg>
+<status status="PASS" starttime="20200103 15:56:34.452" endtime="20200103 15:56:34.464"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>id=id_gender2</arg>
+</arguments>
+<msg timestamp="20200103 15:56:34.464" level="INFO">Clicking element 'id=id_gender2'.</msg>
+<status status="PASS" starttime="20200103 15:56:34.464" endtime="20200103 15:56:34.531"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=customer_firstname</arg>
+<arg>${customer_firstname}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:34.532" level="INFO">Typing text 'Kasia' into text field 'id=customer_firstname'.</msg>
+<status status="PASS" starttime="20200103 15:56:34.531" endtime="20200103 15:56:34.653"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=customer_lastname</arg>
+<arg>${customer_lastname}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:34.654" level="INFO">Typing text 'Hawel' into text field 'id=customer_lastname'.</msg>
+<status status="PASS" starttime="20200103 15:56:34.653" endtime="20200103 15:56:34.769"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=passwd</arg>
+<arg>${passwd}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:34.770" level="INFO">Typing text 'abcdef' into text field 'id=passwd'.</msg>
+<status status="PASS" starttime="20200103 15:56:34.769" endtime="20200103 15:56:34.964"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#days &gt; option:nth-child(19)</arg>
+</arguments>
+<msg timestamp="20200103 15:56:34.965" level="INFO">Clicking element 'css=#days &gt; option:nth-child(19)'.</msg>
+<status status="PASS" starttime="20200103 15:56:34.964" endtime="20200103 15:56:35.017"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#months &gt; option:nth-child(7)</arg>
+</arguments>
+<msg timestamp="20200103 15:56:35.018" level="INFO">Clicking element 'css=#months &gt; option:nth-child(7)'.</msg>
+<status status="PASS" starttime="20200103 15:56:35.017" endtime="20200103 15:56:35.069"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#years &gt; option:nth-child(37)</arg>
+</arguments>
+<msg timestamp="20200103 15:56:35.069" level="INFO">Clicking element 'css=#years &gt; option:nth-child(37)'.</msg>
+<status status="PASS" starttime="20200103 15:56:35.069" endtime="20200103 15:56:35.120"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=address1</arg>
+<arg>${address1}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:35.121" level="INFO">Typing text 'Kasztanowa 6c' into text field 'id=address1'.</msg>
+<status status="PASS" starttime="20200103 15:56:35.120" endtime="20200103 15:56:35.277"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=city</arg>
+<arg>${city}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:35.278" level="INFO">Typing text 'Malbork' into text field 'id=city'.</msg>
+<status status="PASS" starttime="20200103 15:56:35.277" endtime="20200103 15:56:35.396"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#id_state &gt; option:nth-child(7)</arg>
+</arguments>
+<msg timestamp="20200103 15:56:35.397" level="INFO">Clicking element 'css=#id_state &gt; option:nth-child(7)'.</msg>
+<status status="PASS" starttime="20200103 15:56:35.397" endtime="20200103 15:56:35.447"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=postcode</arg>
+<arg>${postcode}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:35.447" level="INFO">Typing text '12345' into text field 'id=postcode'.</msg>
+<status status="PASS" starttime="20200103 15:56:35.447" endtime="20200103 15:56:35.558"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#id_country &gt; option:nth-child(2)</arg>
+</arguments>
+<msg timestamp="20200103 15:56:35.559" level="INFO">Clicking element 'css=#id_country &gt; option:nth-child(2)'.</msg>
+<status status="PASS" starttime="20200103 15:56:35.559" endtime="20200103 15:56:35.607"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=phone_mobile</arg>
+<arg>${phone_mobile}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:35.608" level="INFO">Typing text '123456789' into text field 'id=phone_mobile'.</msg>
+<status status="PASS" starttime="20200103 15:56:35.607" endtime="20200103 15:56:35.740"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#submitAccount &gt; span</arg>
+</arguments>
+<msg timestamp="20200103 15:56:35.741" level="INFO">Clicking element 'css=#submitAccount &gt; span'.</msg>
+<status status="PASS" starttime="20200103 15:56:35.741" endtime="20200103 15:56:37.207"></status>
+</kw>
+<kw name="Page Should Contain Element" library="selenium">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>link=Sign out</arg>
+</arguments>
+<msg timestamp="20200103 15:56:37.262" level="INFO">Current page contains element 'link=Sign out'.</msg>
+<status status="PASS" starttime="20200103 15:56:37.207" endtime="20200103 15:56:37.262"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="selenium">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>filename=register_succesful.png</arg>
+</arguments>
+<msg timestamp="20200103 15:56:37.589" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="register_succesful.png"&gt;&lt;img src="register_succesful.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200103 15:56:37.262" endtime="20200103 15:56:37.589"></status>
+</kw>
+<kw name="Click Link" library="selenium">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>link=Sign out</arg>
+</arguments>
+<msg timestamp="20200103 15:56:37.590" level="INFO">Clicking link 'link=Sign out'.</msg>
+<status status="PASS" starttime="20200103 15:56:37.590" endtime="20200103 15:56:39.372"></status>
+</kw>
+<status status="PASS" starttime="20200103 15:56:32.696" endtime="20200103 15:56:39.372"></status>
+</kw>
+<status status="PASS" starttime="20200103 15:56:32.695" endtime="20200103 15:56:39.373" critical="yes"></status>
+</test>
+<test id="s1-s1-s1-s1-s1-s1-s1-s1-s1-s1-s1-t2" name="Scenario 02: Unsuccessful Registration ( email validation )">
+<kw name="Register with invalid email" library="keywords">
+<arguments>
+<arg>${email_create}</arg>
+<arg>An account using this email address has already been registered. Please enter a valid password or request a new one.</arg>
+</arguments>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=email_create</arg>
+<arg>${email_create}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:39.378" level="INFO">Typing text 'kaha666@vp.pl' into text field 'id=email_create'.</msg>
+<status status="PASS" starttime="20200103 15:56:39.377" endtime="20200103 15:56:39.511"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#SubmitCreate &gt; span</arg>
+</arguments>
+<msg timestamp="20200103 15:56:39.512" level="INFO">Clicking element 'css=#SubmitCreate &gt; span'.</msg>
+<status status="PASS" starttime="20200103 15:56:39.512" endtime="20200103 15:56:39.583"></status>
+</kw>
+<kw name="Page Should Contain Element" library="selenium">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=#create_account_error</arg>
+</arguments>
+<msg timestamp="20200103 15:56:39.597" level="INFO">Current page contains element 'css=#create_account_error'.</msg>
+<status status="PASS" starttime="20200103 15:56:39.583" endtime="20200103 15:56:39.597"></status>
+</kw>
+<kw name="Page Should Contain Element" library="selenium">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=div.alert.alert-danger</arg>
+</arguments>
+<msg timestamp="20200103 15:56:39.610" level="INFO">Current page contains element 'css=div.alert.alert-danger'.</msg>
+<status status="PASS" starttime="20200103 15:56:39.598" endtime="20200103 15:56:39.610"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>css=div.alert.alert-danger &gt; ol &gt; li</arg>
+</arguments>
+<status status="PASS" starttime="20200103 15:56:39.610" endtime="20200103 15:56:40.251"></status>
+</kw>
+<kw name="Element Should Contain" library="selenium">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>css=div.alert.alert-danger &gt; ol &gt; li</arg>
+<arg>${error_msg}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:40.279" level="INFO">Element 'css=div.alert.alert-danger &gt; ol &gt; li' contains text 'An account using this email address has already been registered. Please enter a valid password or request a new one.'.</msg>
+<status status="PASS" starttime="20200103 15:56:40.251" endtime="20200103 15:56:40.279"></status>
+</kw>
+<kw name="Page Should Not Contain Element" library="selenium">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>link=Sign out</arg>
+</arguments>
+<msg timestamp="20200103 15:56:40.308" level="INFO">Current page does not contain element 'link=Sign out'.</msg>
+<status status="PASS" starttime="20200103 15:56:40.279" endtime="20200103 15:56:40.308"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="selenium">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>filename=register_unsuccesful_email-{index}.png</arg>
+</arguments>
+<msg timestamp="20200103 15:56:40.525" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="register_unsuccesful_email-1.png"&gt;&lt;img src="register_unsuccesful_email-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200103 15:56:40.308" endtime="20200103 15:56:40.525"></status>
+</kw>
+<status status="PASS" starttime="20200103 15:56:39.375" endtime="20200103 15:56:40.526"></status>
+</kw>
+<kw name="Register with invalid email" library="keywords">
+<arguments>
+<arg>${empty}</arg>
+<arg>Invalid email address.</arg>
+</arguments>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=email_create</arg>
+<arg>${email_create}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:40.527" level="INFO">Typing text '' into text field 'id=email_create'.</msg>
+<status status="PASS" starttime="20200103 15:56:40.527" endtime="20200103 15:56:40.595"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#SubmitCreate &gt; span</arg>
+</arguments>
+<msg timestamp="20200103 15:56:40.595" level="INFO">Clicking element 'css=#SubmitCreate &gt; span'.</msg>
+<status status="PASS" starttime="20200103 15:56:40.595" endtime="20200103 15:56:40.655"></status>
+</kw>
+<kw name="Page Should Contain Element" library="selenium">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=#create_account_error</arg>
+</arguments>
+<msg timestamp="20200103 15:56:40.665" level="INFO">Current page contains element 'css=#create_account_error'.</msg>
+<status status="PASS" starttime="20200103 15:56:40.655" endtime="20200103 15:56:40.665"></status>
+</kw>
+<kw name="Page Should Contain Element" library="selenium">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=div.alert.alert-danger</arg>
+</arguments>
+<msg timestamp="20200103 15:56:40.674" level="INFO">Current page contains element 'css=div.alert.alert-danger'.</msg>
+<status status="PASS" starttime="20200103 15:56:40.666" endtime="20200103 15:56:40.675"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>css=div.alert.alert-danger &gt; ol &gt; li</arg>
+</arguments>
+<status status="PASS" starttime="20200103 15:56:40.675" endtime="20200103 15:56:41.312"></status>
+</kw>
+<kw name="Element Should Contain" library="selenium">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>css=div.alert.alert-danger &gt; ol &gt; li</arg>
+<arg>${error_msg}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:41.334" level="INFO">Element 'css=div.alert.alert-danger &gt; ol &gt; li' contains text 'Invalid email address.'.</msg>
+<status status="PASS" starttime="20200103 15:56:41.312" endtime="20200103 15:56:41.335"></status>
+</kw>
+<kw name="Page Should Not Contain Element" library="selenium">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>link=Sign out</arg>
+</arguments>
+<msg timestamp="20200103 15:56:41.351" level="INFO">Current page does not contain element 'link=Sign out'.</msg>
+<status status="PASS" starttime="20200103 15:56:41.335" endtime="20200103 15:56:41.351"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="selenium">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>filename=register_unsuccesful_email-{index}.png</arg>
+</arguments>
+<msg timestamp="20200103 15:56:41.576" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="register_unsuccesful_email-2.png"&gt;&lt;img src="register_unsuccesful_email-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200103 15:56:41.352" endtime="20200103 15:56:41.577"></status>
+</kw>
+<status status="PASS" starttime="20200103 15:56:40.526" endtime="20200103 15:56:41.577"></status>
+</kw>
+<kw name="Register with invalid email" library="keywords">
+<arguments>
+<arg>invalid</arg>
+<arg>Invalid email address.</arg>
+</arguments>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=email_create</arg>
+<arg>${email_create}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:41.578" level="INFO">Typing text 'invalid' into text field 'id=email_create'.</msg>
+<status status="PASS" starttime="20200103 15:56:41.578" endtime="20200103 15:56:41.654"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#SubmitCreate &gt; span</arg>
+</arguments>
+<msg timestamp="20200103 15:56:41.655" level="INFO">Clicking element 'css=#SubmitCreate &gt; span'.</msg>
+<status status="PASS" starttime="20200103 15:56:41.654" endtime="20200103 15:56:41.707"></status>
+</kw>
+<kw name="Page Should Contain Element" library="selenium">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=#create_account_error</arg>
+</arguments>
+<msg timestamp="20200103 15:56:41.718" level="INFO">Current page contains element 'css=#create_account_error'.</msg>
+<status status="PASS" starttime="20200103 15:56:41.707" endtime="20200103 15:56:41.718"></status>
+</kw>
+<kw name="Page Should Contain Element" library="selenium">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=div.alert.alert-danger</arg>
+</arguments>
+<msg timestamp="20200103 15:56:41.728" level="INFO">Current page contains element 'css=div.alert.alert-danger'.</msg>
+<status status="PASS" starttime="20200103 15:56:41.719" endtime="20200103 15:56:41.728"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>css=div.alert.alert-danger &gt; ol &gt; li</arg>
+</arguments>
+<status status="PASS" starttime="20200103 15:56:41.729" endtime="20200103 15:56:42.364"></status>
+</kw>
+<kw name="Element Should Contain" library="selenium">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>css=div.alert.alert-danger &gt; ol &gt; li</arg>
+<arg>${error_msg}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:42.389" level="INFO">Element 'css=div.alert.alert-danger &gt; ol &gt; li' contains text 'Invalid email address.'.</msg>
+<status status="PASS" starttime="20200103 15:56:42.365" endtime="20200103 15:56:42.389"></status>
+</kw>
+<kw name="Page Should Not Contain Element" library="selenium">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>link=Sign out</arg>
+</arguments>
+<msg timestamp="20200103 15:56:42.406" level="INFO">Current page does not contain element 'link=Sign out'.</msg>
+<status status="PASS" starttime="20200103 15:56:42.389" endtime="20200103 15:56:42.406"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="selenium">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>filename=register_unsuccesful_email-{index}.png</arg>
+</arguments>
+<msg timestamp="20200103 15:56:42.631" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="register_unsuccesful_email-3.png"&gt;&lt;img src="register_unsuccesful_email-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200103 15:56:42.407" endtime="20200103 15:56:42.631"></status>
+</kw>
+<status status="PASS" starttime="20200103 15:56:41.577" endtime="20200103 15:56:42.631"></status>
+</kw>
+<status status="PASS" starttime="20200103 15:56:39.374" endtime="20200103 15:56:42.632" critical="yes"></status>
+</test>
+<test id="s1-s1-s1-s1-s1-s1-s1-s1-s1-s1-s1-t3" name="Scenario 03: Unsuccessful Registration ( registration form validation )">
+<kw name="Register with invalid credentials" library="keywords">
+<arguments>
+<arg>123</arg>
+<arg>456</arg>
+<arg>xyz</arg>
+<arg>${empty}</arg>
+<arg>^&amp;^</arg>
+<arg>666</arg>
+<arg>0000</arg>
+<arg>There are 5 errors</arg>
+</arguments>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=email_create</arg>
+<arg>kaha555@vp.pl</arg>
+</arguments>
+<msg timestamp="20200103 15:56:42.634" level="INFO">Typing text 'kaha555@vp.pl' into text field 'id=email_create'.</msg>
+<status status="PASS" starttime="20200103 15:56:42.634" endtime="20200103 15:56:42.740"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#SubmitCreate &gt; span</arg>
+</arguments>
+<msg timestamp="20200103 15:56:42.741" level="INFO">Clicking element 'css=#SubmitCreate &gt; span'.</msg>
+<status status="PASS" starttime="20200103 15:56:42.740" endtime="20200103 15:56:42.787"></status>
+</kw>
+<kw name="Page Should Not Contain Element" library="selenium">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=create_account_error</arg>
+</arguments>
+<msg timestamp="20200103 15:56:42.803" level="INFO">Current page does not contain element 'css=create_account_error'.</msg>
+<status status="PASS" starttime="20200103 15:56:42.787" endtime="20200103 15:56:42.803"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="selenium">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>submitAccount</arg>
+</arguments>
+<status status="PASS" starttime="20200103 15:56:42.804" endtime="20200103 15:56:44.076"></status>
+</kw>
+<kw name="Page Should Contain Element" library="selenium">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=#submitAccount</arg>
+</arguments>
+<msg timestamp="20200103 15:56:44.089" level="INFO">Current page contains element 'css=#submitAccount'.</msg>
+<status status="PASS" starttime="20200103 15:56:44.076" endtime="20200103 15:56:44.090"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>id=id_gender2</arg>
+</arguments>
+<msg timestamp="20200103 15:56:44.091" level="INFO">Clicking element 'id=id_gender2'.</msg>
+<status status="PASS" starttime="20200103 15:56:44.090" endtime="20200103 15:56:44.159"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=customer_firstname</arg>
+<arg>${customer_firstname}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:44.160" level="INFO">Typing text '123' into text field 'id=customer_firstname'.</msg>
+<status status="PASS" starttime="20200103 15:56:44.159" endtime="20200103 15:56:44.260"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=customer_lastname</arg>
+<arg>${customer_lastname}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:44.260" level="INFO">Typing text '456' into text field 'id=customer_lastname'.</msg>
+<status status="PASS" starttime="20200103 15:56:44.260" endtime="20200103 15:56:44.356"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=passwd</arg>
+<arg>${passwd}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:44.357" level="INFO">Typing text 'xyz' into text field 'id=passwd'.</msg>
+<status status="PASS" starttime="20200103 15:56:44.356" endtime="20200103 15:56:44.455"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#days &gt; option:nth-child(19)</arg>
+</arguments>
+<msg timestamp="20200103 15:56:44.455" level="INFO">Clicking element 'css=#days &gt; option:nth-child(19)'.</msg>
+<status status="PASS" starttime="20200103 15:56:44.455" endtime="20200103 15:56:44.505"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#months &gt; option:nth-child(7)</arg>
+</arguments>
+<msg timestamp="20200103 15:56:44.505" level="INFO">Clicking element 'css=#months &gt; option:nth-child(7)'.</msg>
+<status status="PASS" starttime="20200103 15:56:44.505" endtime="20200103 15:56:44.551"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#years &gt; option:nth-child(37)</arg>
+</arguments>
+<msg timestamp="20200103 15:56:44.552" level="INFO">Clicking element 'css=#years &gt; option:nth-child(37)'.</msg>
+<status status="PASS" starttime="20200103 15:56:44.551" endtime="20200103 15:56:44.647"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=address1</arg>
+<arg>${address1}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:44.648" level="INFO">Typing text '' into text field 'id=address1'.</msg>
+<status status="PASS" starttime="20200103 15:56:44.648" endtime="20200103 15:56:44.727"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=city</arg>
+<arg>${city}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:44.728" level="INFO">Typing text '^&amp;^' into text field 'id=city'.</msg>
+<status status="PASS" starttime="20200103 15:56:44.728" endtime="20200103 15:56:44.833"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#id_state &gt; option:nth-child(7)</arg>
+</arguments>
+<msg timestamp="20200103 15:56:44.834" level="INFO">Clicking element 'css=#id_state &gt; option:nth-child(7)'.</msg>
+<status status="PASS" starttime="20200103 15:56:44.834" endtime="20200103 15:56:44.880"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=postcode</arg>
+<arg>${postcode}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:44.881" level="INFO">Typing text '666' into text field 'id=postcode'.</msg>
+<status status="PASS" starttime="20200103 15:56:44.881" endtime="20200103 15:56:44.974"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#id_country &gt; option:nth-child(2)</arg>
+</arguments>
+<msg timestamp="20200103 15:56:44.975" level="INFO">Clicking element 'css=#id_country &gt; option:nth-child(2)'.</msg>
+<status status="PASS" starttime="20200103 15:56:44.974" endtime="20200103 15:56:45.018"></status>
+</kw>
+<kw name="Input Text" library="selenium">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=phone_mobile</arg>
+<arg>${phone_mobile}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:45.019" level="INFO">Typing text '0000' into text field 'id=phone_mobile'.</msg>
+<status status="PASS" starttime="20200103 15:56:45.019" endtime="20200103 15:56:45.118"></status>
+</kw>
+<kw name="Click Element" library="selenium">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=#submitAccount &gt; span</arg>
+</arguments>
+<msg timestamp="20200103 15:56:45.118" level="INFO">Clicking element 'css=#submitAccount &gt; span'.</msg>
+<status status="PASS" starttime="20200103 15:56:45.118" endtime="20200103 15:56:46.140"></status>
+</kw>
+<kw name="Page Should Contain Element" library="selenium">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=div.alert.alert-danger &gt; p:nth-child(1)</arg>
+</arguments>
+<msg timestamp="20200103 15:56:46.156" level="INFO">Current page contains element 'css=div.alert.alert-danger &gt; p:nth-child(1)'.</msg>
+<status status="PASS" starttime="20200103 15:56:46.140" endtime="20200103 15:56:46.156"></status>
+</kw>
+<kw name="Element Should Contain" library="selenium">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>css=div.alert.alert-danger &gt; p</arg>
+<arg>${error_msg}</arg>
+</arguments>
+<msg timestamp="20200103 15:56:46.187" level="INFO">Element 'css=div.alert.alert-danger &gt; p' contains text 'There are 5 errors'.</msg>
+<status status="PASS" starttime="20200103 15:56:46.157" endtime="20200103 15:56:46.188"></status>
+</kw>
+<kw name="Page Should Not Contain Element" library="selenium">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>link=Sign out</arg>
+</arguments>
+<msg timestamp="20200103 15:56:46.218" level="INFO">Current page does not contain element 'link=Sign out'.</msg>
+<status status="PASS" starttime="20200103 15:56:46.188" endtime="20200103 15:56:46.218"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="selenium">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>filename=register_unsuccesful_form_valid.png</arg>
+</arguments>
+<msg timestamp="20200103 15:56:46.464" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="register_unsuccesful_form_valid.png"&gt;&lt;img src="register_unsuccesful_form_valid.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200103 15:56:46.219" endtime="20200103 15:56:46.465"></status>
+</kw>
+<status status="PASS" starttime="20200103 15:56:42.633" endtime="20200103 15:56:46.465"></status>
+</kw>
+<status status="PASS" starttime="20200103 15:56:42.632" endtime="20200103 15:56:46.465" critical="yes"></status>
+</test>
+<kw name="Close navigator" library="keywords" type="teardown">
+<kw name="Close Browser" library="selenium">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200103 15:56:46.467" endtime="20200103 15:56:48.583"></status>
+</kw>
+<status status="PASS" starttime="20200103 15:56:46.467" endtime="20200103 15:56:48.583"></status>
+</kw>
+<doc>Test suite to validate the registration action</doc>
+<status status="PASS" starttime="20200103 15:56:20.210" endtime="20200103 15:56:48.584"></status>
+</suite>
+<status status="PASS" starttime="20200103 15:56:20.207" endtime="20200103 15:56:48.588"></status>
+</suite>
+<status status="PASS" starttime="20200103 15:56:20.204" endtime="20200103 15:56:48.591"></status>
+</suite>
+<status status="PASS" starttime="20200103 15:56:20.202" endtime="20200103 15:56:48.594"></status>
+</suite>
+<status status="PASS" starttime="20200103 15:56:20.199" endtime="20200103 15:56:48.597"></status>
+</suite>
+<status status="PASS" starttime="20200103 15:56:20.197" endtime="20200103 15:56:48.600"></status>
+</suite>
+<status status="PASS" starttime="20200103 15:56:20.194" endtime="20200103 15:56:48.603"></status>
+</suite>
+<status status="PASS" starttime="20200103 15:56:20.192" endtime="20200103 15:56:48.605"></status>
+</suite>
+<status status="PASS" starttime="20200103 15:56:20.189" endtime="20200103 15:56:48.609"></status>
+</suite>
+<status status="PASS" starttime="20200103 15:56:20.187" endtime="20200103 15:56:48.612"></status>
+</suite>
+<status status="PASS" starttime="20200103 15:56:20.162" endtime="20200103 15:56:48.615"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0">Critical Tests</stat>
+<stat pass="3" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" id="s1" name="TAU repozytorium">TAU repozytorium</stat>
+<stat pass="3" fail="0" id="s1-s1" name="Src">TAU repozytorium.Src</stat>
+<stat pass="3" fail="0" id="s1-s1-s1" name="Test">TAU repozytorium.Src.Test</stat>
+<stat pass="3" fail="0" id="s1-s1-s1-s1" name="Java">TAU repozytorium.Src.Test.Java</stat>
+<stat pass="3" fail="0" id="s1-s1-s1-s1-s1" name="Com">TAU repozytorium.Src.Test.Java.Com</stat>
+<stat pass="3" fail="0" id="s1-s1-s1-s1-s1-s1" name="Hawliczek">TAU repozytorium.Src.Test.Java.Com.Hawliczek</stat>
+<stat pass="3" fail="0" id="s1-s1-s1-s1-s1-s1-s1" name="Tau">TAU repozytorium.Src.Test.Java.Com.Hawliczek.Tau</stat>
+<stat pass="3" fail="0" id="s1-s1-s1-s1-s1-s1-s1-s1" name="Test">TAU repozytorium.Src.Test.Java.Com.Hawliczek.Tau.Test</stat>
+<stat pass="3" fail="0" id="s1-s1-s1-s1-s1-s1-s1-s1-s1" name="Robot">TAU repozytorium.Src.Test.Java.Com.Hawliczek.Tau.Test.Robot</stat>
+<stat pass="3" fail="0" id="s1-s1-s1-s1-s1-s1-s1-s1-s1-s1" name="Zad1">TAU repozytorium.Src.Test.Java.Com.Hawliczek.Tau.Test.Robot.Zad1</stat>
+<stat pass="3" fail="0" id="s1-s1-s1-s1-s1-s1-s1-s1-s1-s1-s1" name="registrationValidation">TAU repozytorium.Src.Test.Java.Com.Hawliczek.Tau.Test.Robot.Zad1.registrationValidation</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

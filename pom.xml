@@ -59,7 +59,13 @@
 			<artifactId>hsqldb</artifactId>
 			<version>2.3.4</version>
 		</dependency>
-
+		<dependency>
+            <groupId>com.github.hi-fi</groupId>
+            <artifactId>robotframework-seleniumlibrary</artifactId>
+            <version>3.141.59.26535</version>
+            <scope>test</scope>
+        </dependency>
+        
 		<!-- Spring dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -97,6 +103,18 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.robotframework</groupId>
+				<artifactId>robotframework-maven-plugin</artifactId>
+				<version>1.5.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>		
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
